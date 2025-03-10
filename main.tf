@@ -182,5 +182,6 @@ resource "aws_iam_role_policy_attachment" "project-name_node_group_registry_poli
 }
 
 resource "aws_iam_role_policy_attachment" "project-name_node_group_ebs_policy" {
-  role       = aws_iam
+  role       = aws_iam_role.project-name_node_group_role.name # Correctly references the IAM role
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
 }
